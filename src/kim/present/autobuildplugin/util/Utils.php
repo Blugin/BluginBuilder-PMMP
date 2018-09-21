@@ -22,7 +22,7 @@
 
 declare(strict_types=1);
 
-namespace kim\present\makepluginplus\util;
+namespace kim\present\autobuildplugin\util;
 
 use pocketmine\plugin\Plugin;
 use pocketmine\Server;

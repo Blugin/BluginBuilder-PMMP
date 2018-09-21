@@ -1,14 +1,14 @@
 ---
-name: MakePluginPlus
-main: kim\present\makepluginplus\MakePluginPlus
-version: 1.1.0
+name: AutoBuildPlugin
+main: kim\present\autobuildplugin\AutoBuildPlugin
+version: 1.0.0
 api: [3.0.0, 4.0.0]
 author: PresentKim
-description: Make plugin with more option (more optimize)
+description: 소스 플러그인 자동 빌드 플러그인
 depend: ['DevTools']
 
 permissions:
-  makepluginplus.cmd:
-    description: MakePluginPlus main command
+  autobuildplugin.cmd:
+    description: AutoBuildPlugin main command
     default: op
 ...

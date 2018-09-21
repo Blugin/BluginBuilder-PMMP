@@ -22,20 +22,20 @@
 
 declare(strict_types=1);
 
-namespace kim\present\makepluginplus;
+namespace kim\present\autobuildplugin;
 
 use FolderPluginLoader\FolderPluginLoader;
-use kim\present\makepluginplus\util\Utils;
+use kim\present\autobuildplugin\util\Utils;
 use pocketmine\{command, plugin, Server};
 
-class MakePluginPlus extends plugin\PluginBase{
-	/** @var MakePluginPlus */
+class AutoBuildPlugin extends plugin\PluginBase{
+	/** @var AutoBuildPlugin */
 	private static $instance;
 
 	/**
-	 * @return MakePluginPlus
+	 * @return AutoBuildPlugin
 	 */
-	public static function getInstance() : MakePluginPlus{
+	public static function getInstance() : AutoBuildPlugin{
 		return self::$instance;
 	}
 
@@ -57,12 +57,12 @@ class MakePluginPlus extends plugin\PluginBase{
 		$this->saveDefaultConfig();
 		$this->reloadConfig();
 
-		$command = new command\PluginCommand("makepluginplus", $this);
-		$command->setPermission("makepluginplus.cmd");
+		$command = new command\PluginCommand("autobuildplugin", $this);
+		$command->setPermission("autobuildplugin.cmd");
 		$command->setDescription("Build the plugin with optimizing");
-		$command->setUsage("/makepluginplus <plugin name>");
+		$command->setUsage("/autobuildplugin <plugin name>");
 		$command->setAliases(["build", "mpp"]);
-		$this->getServer()->getCommandMap()->register("makepluginplus", $command);
+		$this->getServer()->getCommandMap()->register("autobuildplugin", $command);
 	}
 
 	/**
@@ -150,7 +150,7 @@ class MakePluginPlus extends plugin\PluginBase{
 							   ]);
 		}
 		if(!$setting["skip-stub"]){
-			$phar->setStub('<?php echo "PocketMine-MP plugin ' . "{$description->getName()}_v{$description->getVersion()}\nThis file has been generated using MakePluginPlus at " . date("r") . '\n----------------\n";if(extension_loaded("phar")){$phar = new \Phar(__FILE__);foreach($phar->getMetadata() as $key => $value){echo ucfirst($key).": ".(is_array($value) ? implode(", ", $value):$value)."\n";}} __HALT_COMPILER();');
+			$phar->setStub('<?php echo "PocketMine-MP plugin ' . "{$description->getName()}_v{$description->getVersion()}\nThis file has been generated using AutoBuildPlugin at " . date("r") . '\n----------------\n";if(extension_loaded("phar")){$phar = new \Phar(__FILE__);foreach($phar->getMetadata() as $key => $value){echo ucfirst($key).": ".(is_array($value) ? implode(", ", $value):$value)."\n";}} __HALT_COMPILER();');
 		}else{
 			$phar->setStub("<?php __HALT_COMPILER();");
 		}
