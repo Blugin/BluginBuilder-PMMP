@@ -100,7 +100,7 @@ class PluginBuildExecutor implements CommandExecutor{
             C::RED . count($failures) . " failures"
         );
         $sender->sendMessage(C::AQUA . " - Results ($count): " .
-            C::GREEN . implode($successes, ", ",) . C::RESET . ", " .
+            C::GREEN . implode(", ", $successes) . C::RESET . ", " .
             C::RED . implode(", ", $failures)
         );
         return true;
