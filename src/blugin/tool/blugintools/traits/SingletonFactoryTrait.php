@@ -27,6 +27,8 @@ declare(strict_types=1);
 
 namespace blugin\tool\blugintools\traits;
 
+use pocketmine\utils\SingletonTrait;
+
 trait SingletonFactoryTrait{
     use SingletonTrait;
 
